@@ -1,2 +1,2 @@
-Credit: @dogancemd //
-Tester was provided by Dogancem Duran //
+Credit: @dogancemd \\
+Tester was provided by Dogancem Duran \\
