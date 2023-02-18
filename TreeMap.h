@@ -9,7 +9,7 @@
 
 template<class K, class V>
 class TreeMap {
-public: // DO NOT CHANGE THIS PART.
+public:
     TreeMap();
 
     void clear();
