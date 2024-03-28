@@ -1,5 +1,5 @@
 # TreeMap-via-Scapegoat-Trees
-TreeMap Implementation via Scapegoat Trees
+TreeMap Implementation via self-balancing Scapegoat Trees
 
 # Scapegoat Tree
 
