@@ -701,7 +701,6 @@ ScapegoatTree<T> &ScapegoatTree<T>::operator=(const ScapegoatTree<T> &rhs) {
     
     if(this == &rhs){
     	return *this;
-    
     }
     
     else{
@@ -722,26 +721,21 @@ void ScapegoatTree<T>::balance() {
 template<class T>
 const T &ScapegoatTree<T>::getCeiling(const T &element) const {
     return Ceil(root, element);
-
 }
 
 template<class T>
 const T &ScapegoatTree<T>::getFloor(const T &element) const {
     return Floor(root, element);
-
 }
 
 template<class T>
 const T &ScapegoatTree<T>::getMin() const {
     return(getMin(root));
-
-
 }
 
 template<class T>
 const T &ScapegoatTree<T>::getMax() const {
     return(getMax(root));
-
 }
 
 template<class T>
