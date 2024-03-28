@@ -11,3 +11,7 @@ TreeMap Implementation via Scapegoat Trees
 
 * Thus, scapegoat trees have O(n) worst-case update performance  
 
+# Self Balancing Condition:  
+
+![image](https://github.com/yalcinalp/TreeMap-via-Scapegoat-Trees/assets/95969634/26004c9d-e685-4e43-8cf4-24df99662631)
+
