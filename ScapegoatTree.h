@@ -21,11 +21,9 @@ public: // DO NOT CHANGE THIS PART.
     bool isEmpty() const;
 
     int getHeight() const;
-
     int getSize() const;
 
     bool insert(const T &element);
-
     bool remove(const T &element);
 
     void removeAllNodes();
@@ -33,7 +31,6 @@ public: // DO NOT CHANGE THIS PART.
     const T &get(const T &element) const;
 
     void print(TraversalMethod tp=inorder) const;
-
     void printPretty() const;
 
     ScapegoatTree<T> &operator=(const ScapegoatTree<T> &rhs);
@@ -41,16 +38,14 @@ public: // DO NOT CHANGE THIS PART.
     void balance();
 
     const T &getCeiling(const T &element) const;
-
     const T &getFloor(const T &element) const;
 
     const T &getMin() const;
-
     const T &getMax() const;
 
     const T &getNext(const T &element) const;
 
-private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
+private:
     void print(Node<T> *node, TraversalMethod tp) const;
     void printPretty(Node<T> *node, int indentLevel, bool isLeftChild) const;
 
@@ -90,13 +85,11 @@ private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
         }
 
         if(getHeight(node->right) >= getHeight(node->left)){
-
             return 1 + getHeight(node->right);
 
         }
 
         else{
-
             return 1 + getHeight(node->left);
         }
     }
@@ -242,15 +235,12 @@ private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
     void balance(Node<T>*& node){
         
         int size = getSize(node);
-        
         T* arr = new T[size];
         
         storeInArray(node, arr, 0);
-        
         removeAllNodes(node);
         
         node = NULL;
-        
         binary_search_builder(node, arr, 0, size-1);
         
         delete[] arr;
@@ -261,11 +251,9 @@ private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
     void binary_search_builder(Node<T>*& node, T arr[], int low, int high){
 
         if(high >= low){
-                
             int mid = (low + high)/2;
         
             node = new Node<T>();
-                
             node->element = arr[mid];
             
             binary_search_builder(node->left, arr, low, mid-1);
@@ -323,9 +311,8 @@ private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
     void Insert_to_right_place(Node<T>*& node, const T &element){
         
         if(node == NULL){
-            //new_node->element = element;
-            
             node = new Node<T>();
+
             node -> element = element;
             upperBound++;
         }
@@ -367,7 +354,6 @@ private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
 
     void remove(Node<T>*& node, const T &element){
 
-
         // this will have a side effect and return the boolean value
         // we assume that it is inside the tree
 
@@ -397,7 +383,7 @@ private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
 
             else if(node->left != NULL and node->right == NULL){
                 
-                //one child
+                // one child
                 
                 Node<T>* temp = node;
                 node = node->left; 
@@ -408,7 +394,7 @@ private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
 
             else if(node->left == NULL and node->right != NULL){
 
-                //one child
+                // one child
                 Node<T>* temp = node;
                 node = node->right; 
                 delete temp;
@@ -421,7 +407,6 @@ private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
                 // two childs
                 
                 node->element = getMax(node->left);
-
                 remove(node->left, node->element);
                 
             }
@@ -429,9 +414,8 @@ private: // YOU MAY ADD YOUR OWN UTILITY MEMBER FUNCTIONS HERE.
     }
         
 
-private: // DO NOT CHANGE THIS PART.
+private: 
     Node<T> *root;
-
     int upperBound;
 };
 
@@ -454,30 +438,23 @@ ScapegoatTree<T>::ScapegoatTree(const ScapegoatTree<T> &obj) {
 
 template<class T>
 ScapegoatTree<T>::~ScapegoatTree() {
-    
-
     removeAllNodes();
 
 }
 
 template<class T>
 bool ScapegoatTree<T>::isEmpty() const {
-    
     return root == NULL;
 }
 
 template<class T>
 int ScapegoatTree<T>::getHeight() const {
-    
-
     return getHeight(root);
 
 }
 
 template<class T>
 int ScapegoatTree<T>::getSize() const {
-    
-
     return getSize(root);
     
     // log(upperbound)/log(3/2)
@@ -487,14 +464,12 @@ int ScapegoatTree<T>::getSize() const {
 template<class T>
 bool ScapegoatTree<T>::insert(const T &element) {
     
-    
     try{get(root, element);}
-
     catch(NoSuchItemException a)
     {
 
-        //Node<T>* new_node = new Node<T>();
-        //new_node->element = element;
+        // Node<T>* new_node = new Node<T>();
+        // new_node->element = element;
         
         Insert_to_right_place(root, element);
 
@@ -504,19 +479,14 @@ bool ScapegoatTree<T>::insert(const T &element) {
     
     // BURASI ELSE Gibi iste burayı yapmak lazım return getNext(root->left, input);
     // Side effect + return true
-    return false;
-
-    
+    return false;   
 }
 
 
 template<class T>
 bool ScapegoatTree<T>::remove(const T &element) {
 
-    
-
     try{get(root, element);}
-
     catch(NoSuchItemException a)
     {
         return false;        
@@ -539,7 +509,6 @@ bool ScapegoatTree<T>::remove(const T &element) {
 
 template<class T>
 void ScapegoatTree<T>::removeAllNodes() {
-    
 
     removeAllNodes(root);
     upperBound=0;
@@ -549,8 +518,6 @@ void ScapegoatTree<T>::removeAllNodes() {
 
 template<class T>
 const T &ScapegoatTree<T>::get(const T &element) const {
-    
-    
     return get(root, element);
     
 }
@@ -559,7 +526,6 @@ template<class T>
 void ScapegoatTree<T>::print(TraversalMethod tp) const {
 
     if (tp == preorder) {
-        
         
         // check if the tree is empty?
         if (isEmpty()) {
@@ -618,9 +584,6 @@ template<class T>
 void ScapegoatTree<T>::print(Node<T> *node, TraversalMethod tp) const {
 
     if (tp == preorder) {
-            
-        
-
         // check if the node is NULL?
         if (node == NULL)
             return;
@@ -668,7 +631,6 @@ void ScapegoatTree<T>::print(Node<T> *node, TraversalMethod tp) const {
     
     
     else if (tp == postorder) {
-        
 
         // check if the node is NULL?
         if (node == NULL)
@@ -737,15 +699,12 @@ void ScapegoatTree<T>::printPretty(Node<T> *node, int indentLevel, bool isLeftCh
 template<class T>
 ScapegoatTree<T> &ScapegoatTree<T>::operator=(const ScapegoatTree<T> &rhs) {
     
-
     if(this == &rhs){
-    
     	return *this;
     
     }
     
     else{
-
 	    removeAllNodes();
 
 	    root = copy_const(rhs.root);
@@ -758,31 +717,23 @@ ScapegoatTree<T> &ScapegoatTree<T>::operator=(const ScapegoatTree<T> &rhs) {
 
 template<class T>
 void ScapegoatTree<T>::balance() {
-    
     balance(root);
 }
 
 template<class T>
 const T &ScapegoatTree<T>::getCeiling(const T &element) const {
-    
-    
     return Ceil(root, element);
-
 
 }
 
 template<class T>
 const T &ScapegoatTree<T>::getFloor(const T &element) const {
-    
-
     return Floor(root, element);
 
 }
 
 template<class T>
 const T &ScapegoatTree<T>::getMin() const {
-    
-
     return(getMin(root));
 
 
@@ -790,16 +741,11 @@ const T &ScapegoatTree<T>::getMin() const {
 
 template<class T>
 const T &ScapegoatTree<T>::getMax() const {
-    
-
     return(getMax(root));
 
 }
 
 template<class T>
 const T &ScapegoatTree<T>::getNext(const T &element) const {
-    
-
     return getNext(root, element);
 }
-
