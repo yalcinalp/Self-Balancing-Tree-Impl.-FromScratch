@@ -710,9 +710,8 @@ ScapegoatTree<T> &ScapegoatTree<T>::operator=(const ScapegoatTree<T> &rhs) {
 	    root = copy_const(rhs.root);
 	    upperBound = rhs.upperBound;
 	    
-	    return *this;}
-
-
+	    return *this;
+	}
 }
 
 template<class T>
