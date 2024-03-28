@@ -3,7 +3,7 @@ TreeMap Implementation via Scapegoat Trees
 
 # Scapegoat Tree
 
-* A Scapegoat Tree is a <ins> self-balancing binary </ins> search tree
+* A Scapegoat Tree is a <ins>self-balancing binary</ins> search tree
   
 * It provides worst-case O(log n) lookup time (with n as the number of nodes) and O(log n) amortized insertion and deletion time
   
