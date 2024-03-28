@@ -11,7 +11,7 @@ enum TraversalMethod {preorder, inorder, postorder};
 
 template<class T>
 class ScapegoatTree {
-public: // DO NOT CHANGE THIS PART.
+public:
     ScapegoatTree();
 
     ScapegoatTree(const ScapegoatTree<T> &obj);
